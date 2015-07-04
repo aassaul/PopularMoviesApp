@@ -7,7 +7,6 @@ import com.nanodegree.assaul.popularmoviesapp.business.themoviedb.discovermovie.
 import com.nanodegree.assaul.popularmoviesapp.business.themoviedb.discovermovie.enums.SortBy;
 import com.nanodegree.assaul.popularmoviesapp.vo.MovieVO;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -23,12 +22,8 @@ public class ThemoviedbService {
         discoverMovieTask = new AsyncTask<SortBy, Void, List<MovieVO>>() {
             @Override
             protected List<MovieVO> doInBackground(SortBy... params) {
-                try {
-                    discoverMovieMethod.setSortBy(params[0]);
-                    discoverMovieMethod.run();
-                }catch (IOException e){
-                    android.util.Log.w("ThemoviedbService", e);
-                }
+                discoverMovieMethod.setSortBy(params[0]);
+                discoverMovieMethod.run();
                 return discoverMovieMethod.getResult();
             }
             @Override

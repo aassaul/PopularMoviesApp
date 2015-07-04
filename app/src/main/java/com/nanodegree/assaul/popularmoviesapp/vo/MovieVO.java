@@ -1,17 +1,25 @@
 package com.nanodegree.assaul.popularmoviesapp.vo;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Andrey Assaul on 29.06.2015.
  */
 public class MovieVO {
+    private final static String DATE_FORMAT_PATTERN = "yyyy-MM-dd";
+    private final static DateFormat DATE_FORMAT = new SimpleDateFormat(DATE_FORMAT_PATTERN, Locale.getDefault());
+
     public enum JSONField {
         ADULT,
         BACKDROP_PATH,
@@ -49,7 +57,7 @@ public class MovieVO {
     private final double voteAverage;
     private final int voteCount;
 
-    public MovieVO(JSONObject json) throws JSONException{
+    public MovieVO(@NonNull JSONObject json) throws JSONException{
         adult = json.getBoolean(JSONField.ADULT.toString());
         JSONArray genreIdsJSON = json.getJSONArray(JSONField.GENRE_IDS.toString());
         genreIds = new long[genreIdsJSON.length()];
@@ -63,7 +71,7 @@ public class MovieVO {
         overview = json.getString(JSONField.OVERVIEW.toString());
         Date releaseDate = null;
         try {
-            releaseDate = new SimpleDateFormat("yyyy-MM-dd").parse(json.getString(JSONField.RELEASE_DATE.toString()));
+            releaseDate = DATE_FORMAT.parse(json.getString(JSONField.RELEASE_DATE.toString()));
         }catch (ParseException e){
             releaseDate = null;
         } finally {

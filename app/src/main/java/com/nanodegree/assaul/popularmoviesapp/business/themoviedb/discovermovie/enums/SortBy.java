@@ -1,5 +1,7 @@
 package com.nanodegree.assaul.popularmoviesapp.business.themoviedb.discovermovie.enums;
 
+import android.support.annotation.NonNull;
+
 import com.nanodegree.assaul.popularmoviesapp.business.enums.SortOrder;
 
 /**
@@ -24,10 +26,12 @@ public enum SortBy {
     VOTE_COUNT_ASC("vote_count", SortOrder.ASC),
     VOTE_COUNT_DESC("vote_count", SortOrder.DESC);
 
+    @NonNull
     private final String name;
+    @NonNull
     private final SortOrder order;
 
-    SortBy(String name, SortOrder order) {
+    SortBy(@NonNull String name, @NonNull SortOrder order) {
         this.name = name;
         this.order = order;
     }

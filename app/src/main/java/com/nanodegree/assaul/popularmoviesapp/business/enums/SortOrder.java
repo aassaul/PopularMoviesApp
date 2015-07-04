@@ -1,5 +1,7 @@
 package com.nanodegree.assaul.popularmoviesapp.business.enums;
 
+import android.support.annotation.NonNull;
+
 /**
  * Created by Андрей on 28.06.2015.
  */
@@ -9,7 +11,7 @@ public enum SortOrder {
 
     private final String name;
 
-    SortOrder(String name) {
+    SortOrder(@NonNull String name) {
         this.name = name;
     }
 

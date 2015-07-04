@@ -1,6 +1,7 @@
 package com.nanodegree.assaul.popularmoviesapp.business.themoviedb.discovermovie;
 
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
 
 import com.nanodegree.assaul.popularmoviesapp.R;
 import com.nanodegree.assaul.popularmoviesapp.business.enums.RequestMethod;
@@ -36,7 +37,7 @@ public class DiscoverMovieMethod extends BaseTheMovieDBMethod<ParameterType, Lis
     }
 
     @Override
-    protected void execute(StringBuilder response) {
+    protected void onResult(@NonNull StringBuilder response) {
         try {
             JSONObject jsonObject = new JSONObject(response.toString());
             JSONArray results = jsonObject.getJSONArray("results");

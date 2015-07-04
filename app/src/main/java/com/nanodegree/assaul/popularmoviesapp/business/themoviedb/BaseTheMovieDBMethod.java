@@ -1,6 +1,8 @@
 package com.nanodegree.assaul.popularmoviesapp.business.themoviedb;
 
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.nanodegree.assaul.popularmoviesapp.R;
 import com.nanodegree.assaul.popularmoviesapp.business.BaseMethod;
@@ -16,7 +18,7 @@ import java.util.List;
  */
 public abstract class BaseTheMovieDBMethod<T extends Enum, Result> extends BaseMethod<T, Result> {
 
-    private static <T extends Enum> List<BaseParameter<T, ?>> getParams(BaseApiKeyParameter<T> apiKeyParameter, String key,  BaseParameter<T, ?>[]parameters){
+    private static <T extends Enum> List<BaseParameter<T, ?>> getParams(@NonNull BaseApiKeyParameter<T> apiKeyParameter, @NonNull String key,  BaseParameter<T, ?>[]parameters){
         apiKeyParameter.setValue(key);
         List<BaseParameter<T, ?>> params = new ArrayList<>();
         params.add(apiKeyParameter);
@@ -24,7 +26,7 @@ public abstract class BaseTheMovieDBMethod<T extends Enum, Result> extends BaseM
         return params;
     }
 
-    public BaseTheMovieDBMethod(RequestMethod requestMethod, Resources resources, String methodUrl, BaseApiKeyParameter<T> apiKeyParameter, BaseParameter<T, ?>... parameters) {
+    public BaseTheMovieDBMethod(@NonNull RequestMethod requestMethod, @NonNull Resources resources, @Nullable String methodUrl, @NonNull BaseApiKeyParameter<T> apiKeyParameter, BaseParameter<T, ?>... parameters) {
         super(requestMethod, resources.getString(R.string.themoviedb_base_url) + methodUrl, getParams(apiKeyParameter, resources.getString(R.string.themoviedb_api_key), parameters));
     }
 }
