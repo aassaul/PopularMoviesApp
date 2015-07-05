@@ -2,4 +2,5 @@
 <resources>
     <string name="themoviedb_base_url">http://api.themoviedb.org/3/</string>
     <string name="discover_movies">discover/movie</string>
+    <string name="themoviedb_image_base_url">http://image.tmdb.org/t/p/w</string>
 </resources>

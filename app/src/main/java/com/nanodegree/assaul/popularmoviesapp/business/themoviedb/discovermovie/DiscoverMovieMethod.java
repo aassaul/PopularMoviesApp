@@ -10,7 +10,7 @@ import com.nanodegree.assaul.popularmoviesapp.business.themoviedb.discovermovie.
 import com.nanodegree.assaul.popularmoviesapp.business.themoviedb.discovermovie.enums.SortBy;
 import com.nanodegree.assaul.popularmoviesapp.business.themoviedb.discovermovie.parameters.ApiKeyParameter;
 import com.nanodegree.assaul.popularmoviesapp.business.themoviedb.discovermovie.parameters.SortByParameter;
-import com.nanodegree.assaul.popularmoviesapp.vo.MovieVO;
+import com.nanodegree.assaul.popularmoviesapp.model.MovieVO;
 
 import org.json.JSONArray;
 import org.json.JSONException;

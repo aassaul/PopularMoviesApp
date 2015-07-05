@@ -1,4 +1,4 @@
-package com.nanodegree.assaul.popularmoviesapp.vo;
+package com.nanodegree.assaul.popularmoviesapp.model;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,7 +20,7 @@ public class MovieVO {
     private final static String DATE_FORMAT_PATTERN = "yyyy-MM-dd";
     private final static DateFormat DATE_FORMAT = new SimpleDateFormat(DATE_FORMAT_PATTERN, Locale.getDefault());
 
-    public enum JSONField {
+    private enum JSONField {
         ADULT,
         BACKDROP_PATH,
         GENRE_IDS,
@@ -43,15 +43,23 @@ public class MovieVO {
     }
 
     private final boolean adult;
+    @Nullable
     private final String backdropPath;
+    @NonNull
     private final long[] genreIds;
     private final long id;
+    @Nullable
     private final String originalLanguage;
+    @Nullable
     private final String originalTitle;
+    @Nullable
     private final String overview;
+    @Nullable
     private final Date releaseDate;
+    @Nullable
     private final String posterPath;
     private final double popularity;
+    @Nullable
     private final String title;
     private final boolean video;
     private final double voteAverage;
@@ -89,10 +97,12 @@ public class MovieVO {
         return adult;
     }
 
+    @Nullable
     public String getBackdropPath() {
         return backdropPath;
     }
 
+    @NonNull
     public long[] getGenreIds() {
         return genreIds;
     }
@@ -101,22 +111,27 @@ public class MovieVO {
         return id;
     }
 
+    @Nullable
     public String getOriginalLanguage() {
         return originalLanguage;
     }
 
+    @Nullable
     public String getOriginalTitle() {
         return originalTitle;
     }
 
+    @Nullable
     public String getOverview() {
         return overview;
     }
 
+    @Nullable
     public Date getReleaseDate() {
         return releaseDate;
     }
 
+    @Nullable
     public String getPosterPath() {
         return posterPath;
     }
@@ -125,6 +140,7 @@ public class MovieVO {
         return popularity;
     }
 
+    @Nullable
     public String getTitle() {
         return title;
     }
