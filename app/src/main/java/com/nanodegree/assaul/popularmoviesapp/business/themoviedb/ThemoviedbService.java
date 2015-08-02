@@ -10,6 +10,7 @@ import com.nanodegree.assaul.popularmoviesapp.business.themoviedb.discovermovie.
 import com.nanodegree.assaul.popularmoviesapp.model.MovieVO;
 
 import java.lang.ref.WeakReference;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -22,22 +23,29 @@ public class ThemoviedbService {
     private final DiscoverMovieMethod discoverMovieMethod;
     @Nullable
     private AsyncTask<SortBy, Void, List<MovieVO>> discoverMovieTask;
+    @NonNull
+    private final List<AsyncTask> currentTasks = new LinkedList<>();
 
     public ThemoviedbService(@NonNull Resources resources, @NonNull IThemoviedbServiceDelegate delegate) {
         discoverMovieMethod = new DiscoverMovieMethod(resources);
         this.delegate = new WeakReference<>(delegate);
     }
 
-    public void getMovies(@NonNull SortBy sortBy){
-        if (discoverMovieTask != null && AsyncTask.Status.RUNNING.equals(discoverMovieTask.getStatus())){
-            discoverMovieTask.cancel(true);
-        }
+    public void getMovies(@NonNull SortBy sortBy) {
+        stopTask(discoverMovieTask);
         discoverMovieTask = getGetMoviesTask();
+        currentTasks.add(discoverMovieTask);
         discoverMovieTask.execute(sortBy);
     }
 
+    public void stop() {
+        for(AsyncTask task : currentTasks) {
+            stopTask(task);
+        }
+    }
+
     @NonNull
-    private AsyncTask<SortBy, Void, List<MovieVO>> getGetMoviesTask(){
+    private AsyncTask<SortBy, Void, List<MovieVO>> getGetMoviesTask() {
         final ThemoviedbService sender = this;
         return new AsyncTask<SortBy, Void, List<MovieVO>>() {
             @Override
@@ -46,10 +54,19 @@ public class ThemoviedbService {
                 discoverMovieMethod.run();
                 return discoverMovieMethod.getResult();
             }
+
             @Override
             protected void onPostExecute(List<MovieVO> result) {
+                currentTasks.remove(discoverMovieTask);
+                discoverMovieTask = null;
                 delegate.get().onGetMoviesResult(result, sender);
             }
         };
+    }
+
+    private void stopTask(@Nullable AsyncTask task) {
+        if(task != null && AsyncTask.Status.RUNNING.equals(task.getStatus())) {
+            task.cancel(true);
+        }
     }
 }

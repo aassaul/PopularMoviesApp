@@ -4,6 +4,6 @@
     style="@style/Activity">
 
     <GridView android:id="@+id/moviesGridView"
-        style="@style/MoviesGridView"
-        android:stretchMode="columnWidth" />
+        style="@style/MoviesGridView" />
+
 </RelativeLayout>

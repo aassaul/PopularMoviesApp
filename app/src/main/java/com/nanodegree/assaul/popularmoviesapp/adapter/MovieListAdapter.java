@@ -61,7 +61,7 @@ public class MovieListAdapter extends BaseAdapter {
     public View getView(int position, @Nullable View convertView, ViewGroup parent) {
         MovieVO movieVO = (MovieVO)getItem(position);
         if (movieVO == null) return  null;
-        ImageView view = (ImageView)((convertView == null)?layoutInflater.inflate(R.layout.movie_grid_item, parent, false):convertView);
+        ImageView view = (ImageView)((convertView == null)?layoutInflater.inflate(R.layout.grid_item_movie, parent, false):convertView);
         view.setContentDescription(movieVO.getTitle());
         picasso.load(baseContentUrl+movieVO.getPosterPath()).into(view);
         return view;

@@ -15,6 +15,12 @@
         <item name="android:background">@android:color/background_dark</item>
     </style>
 
+    <style name="Activity.Details">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:weightSum">5</item>
+    </style>
+
     <style name="MoviesGridView">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
@@ -26,4 +32,21 @@
         <item name="android:columnWidth">@dimen/movies_grid_column_width</item>
     </style>
 
+    <style name="DetailsMovieName">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/details_movie_name_font_size</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/details_movie_name_backgroumd</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/details_movie_name_padding_start</item>
+        <item name="android:paddingRight">@dimen/details_movie_name_padding_start</item>
+    </style>
+
+    <style name="MovieImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">2</item>
+    </style>
 </resources>

@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,7 +17,7 @@ import java.util.Locale;
 /**
  * Created by Andrey Assaul on 29.06.2015.
  */
-public class MovieVO {
+public class MovieVO implements Serializable {
     private final static String DATE_FORMAT_PATTERN = "yyyy-MM-dd";
     private final static DateFormat DATE_FORMAT = new SimpleDateFormat(DATE_FORMAT_PATTERN, Locale.getDefault());
 
@@ -42,28 +43,24 @@ public class MovieVO {
         }
     }
 
-    private final boolean adult;
-    @Nullable
-    private final String backdropPath;
-    @NonNull
-    private final long[] genreIds;
-    private final long id;
-    @Nullable
-    private final String originalLanguage;
-    @Nullable
-    private final String originalTitle;
-    @Nullable
-    private final String overview;
-    @Nullable
-    private final Date releaseDate;
-    @Nullable
-    private final String posterPath;
-    private final double popularity;
-    @Nullable
-    private final String title;
-    private final boolean video;
-    private final double voteAverage;
-    private final int voteCount;
+    private boolean adult;
+    private String backdropPath;
+    private long[] genreIds;
+    private long id;
+    private String originalLanguage;
+    private String originalTitle;
+    private String overview;
+    private Date releaseDate;
+    private String posterPath;
+    private double popularity;
+    private String title;
+    private boolean video;
+    private double voteAverage;
+    private int voteCount;
+
+    public MovieVO(){
+        super();
+    }
 
     public MovieVO(@NonNull JSONObject json) throws JSONException{
         adult = json.getBoolean(JSONField.ADULT.toString());
@@ -93,16 +90,70 @@ public class MovieVO {
         voteCount = json.getInt(JSONField.VOTE_COUNT.toString());
     }
 
+    public void setAdult(boolean adult) {
+        this.adult = adult;
+    }
+
+    public void setBackdropPath(String backdropPath) {
+        this.backdropPath = backdropPath;
+    }
+
+    public void setGenreIds(long[] genreIds) {
+        this.genreIds = genreIds;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setOriginalLanguage(String originalLanguage) {
+        this.originalLanguage = originalLanguage;
+    }
+
+    public void setOriginalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public void setPosterPath(String posterPath) {
+        this.posterPath = posterPath;
+    }
+
+    public void setPopularity(double popularity) {
+        this.popularity = popularity;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setVideo(boolean video) {
+        this.video = video;
+    }
+
+    public void setVoteAverage(double voteAverage) {
+        this.voteAverage = voteAverage;
+    }
+
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
+
     public boolean isAdult() {
         return adult;
     }
 
-    @Nullable
     public String getBackdropPath() {
         return backdropPath;
     }
 
-    @NonNull
     public long[] getGenreIds() {
         return genreIds;
     }
@@ -111,27 +162,22 @@ public class MovieVO {
         return id;
     }
 
-    @Nullable
     public String getOriginalLanguage() {
         return originalLanguage;
     }
 
-    @Nullable
     public String getOriginalTitle() {
         return originalTitle;
     }
 
-    @Nullable
     public String getOverview() {
         return overview;
     }
 
-    @Nullable
     public Date getReleaseDate() {
         return releaseDate;
     }
 
-    @Nullable
     public String getPosterPath() {
         return posterPath;
     }
@@ -140,7 +186,6 @@ public class MovieVO {
         return popularity;
     }
 
-    @Nullable
     public String getTitle() {
         return title;
     }
@@ -156,7 +201,6 @@ public class MovieVO {
     public int getVoteCount() {
         return voteCount;
     }
-
 
 }
 
