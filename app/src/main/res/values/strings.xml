@@ -5,4 +5,5 @@
     <string name="menu_most_popular_sort_title">Most popular</string>
     <string name="menu_highest_rated_sort_title">Highest rated</string>
     <string name="movie_thumb">Movie Thumbnail</string>
+    <string name="details_movie_image_description">movie poster</string>
 </resources>

@@ -18,7 +18,6 @@
     <style name="Activity.Details">
         <item name="android:background">@android:color/white</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:weightSum">5</item>
     </style>
 
     <style name="MoviesGridView">
@@ -34,19 +33,60 @@
 
     <style name="DetailsMovieName">
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">0dip</item>
         <item name="android:textSize">@dimen/details_movie_name_font_size</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/details_movie_name_backgroumd</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_weight">0.2</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">@dimen/details_movie_name_padding_start</item>
         <item name="android:paddingRight">@dimen/details_movie_name_padding_start</item>
     </style>
 
+    <style name="MovieDetailsGroup">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0dip</item>
+        <item name="android:layout_weight">0.4</item>
+        <item name="android:paddingLeft">@dimen/details_movie_image_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/details_movie_image_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/details_movie_image_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/details_movie_image_padding_vertical</item>
+    </style>
+
+    <style name="MovieSynopsisText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/details_movie_image_padding_horizontal</item>
+        <item name="android:layout_marginRight">@dimen/details_movie_image_padding_horizontal</item>
+        <item name="android:layout_marginBottom">@dimen/details_movie_image_padding_vertical</item>
+    </style>
+
     <style name="MovieImage">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_marginRight">@dimen/details_movie_name_padding_start</item>
+        <item name="android:contentDescription">@string/details_movie_image_description</item>
         <item name="android:layout_height">fill_parent</item>
-        <item name="android:layout_weight">2</item>
+        <item name="android:layout_width">0dip</item>
+    </style>
+
+    <style name="MovieStatsGroup">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">0.5</item>
+    </style>
+
+    <style name="MovieYearText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <style name="MovieVoteText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
